@@ -23,3 +23,12 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('GetUser', () => {
+    cy.request({
+        method: 'GET',
+        url: 'https://jsonplaceholder.typicode.com/users',
+   }).then((response) => { 
+           cy.log(response.body[5])
+   })
+})
